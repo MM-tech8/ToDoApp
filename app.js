@@ -12,12 +12,27 @@ const Admin = require("./admin");
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(express.static('public'));
 
 const port = 4000;
 
 app.listen(port, () => {
     console.log(`listening to port ${port}`);
 });
+
+// app.get('/', function(req, res){
+//    res.sendFile("index.html"); 
+//   });
+
+  app.post('/signup.html',function(req,res){
+    const username = req.body.username;
+    const pass = req.body.password
+    const admin = req.body.admin
+    var htmlData = username + pass + admin;
+    res.send(htmlData);
+    console.log(htmlData);
+ });
+
 
 // makes a new user
 app.post("/user", async (req,res) => {
@@ -51,5 +66,8 @@ app.post("/admin", async (req,res) => {
     const { admin } = req.body;
     await Admin.create({ admin });
 });
+
+
+
 
 setupDB();
