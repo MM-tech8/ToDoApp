@@ -52,9 +52,7 @@ app.post("/admin", async (req,res) => {
     await Admin.create({ admin });
 });
 
-app.get("/public/signup.html", async (req,res) => {
-    const { completeForm } = req.body;
-    res.send(completeForm);
-});
+
+
 
 setupDB();
