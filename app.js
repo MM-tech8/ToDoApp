@@ -20,10 +20,7 @@ app.listen(port, () => {
     console.log(`listening to port ${port}`);
 });
 
-// app.get('/', function(req, res){
-//    res.sendFile("index.html"); 
-//   });
-
+// tells page how to handle the data from signup form
   app.post('/signup.html',function(req,res){
     const username = req.body.username;
     const pass = req.body.password
@@ -61,11 +58,7 @@ app.post("/user/:id/dashboard", async (req,res) => {
     res.sendStatus(201);
 });
 
-// makes a new admin
-app.post("/admin", async (req,res) => {
-    const { admin } = req.body;
-    await Admin.create({ admin });
-});
+
 
 
 

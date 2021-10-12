@@ -13,5 +13,5 @@ bcrypt.hash(password, saltRounds, function(err, hash) {
         else{
             console.log("password has been stored!");
         }
-    })
+    });
 });

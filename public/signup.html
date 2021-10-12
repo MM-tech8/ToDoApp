@@ -8,10 +8,10 @@
 </head>
 <body>
     <form action="/signup.html" method="post">
-        <label for="username">Username:</label>
+        <label for="username-signup">Username:</label>
         <input name="username" id="username-signup" required>
         <br>
-        <label for="password">Password:</label>
+        <label for="password-signup">Password:</label>
         <input name="password" id="password-signup" required>
         <br>
         <button type="submit">Sign Up</button>
@@ -20,6 +20,15 @@
             <option value="true">Admin</option>
             <option value="false">Non-admin</option>
         </select>
+
+        <select name="avatar" id="choose-avatar">
+            <option value="true"><img src="./avatars/icons8-baby-yoda-48.png">Baby Yoda</option>
+            <option value="true"><img src="./avatars/icons8-tom-48.png">Tom</option>
+            <option value="true"><img src="./avatars/icons8-jerry-48.png">Jerry</option>
+            <option value="true"><img src="./avatars/icons8-morty-smith-48.png">Morty</option>
+            <option data-img_src="background-image: url(./avatars/icons8-rick-sanchez-48.png)">Rick</option>
+        </select>
+
     </form>
 </body>
 </html>
