@@ -5,11 +5,12 @@ class User extends Model{};
 
 User.init(
     {
+        email: {type: DataTypes.TEXT, primaryKey: true},
         username: DataTypes.TEXT,
         password: DataTypes.TEXT,
         avatarURL: DataTypes.TEXT,
-        email: DataTypes.TEXT,
-        admin : DataTypes.BOOLEAN
+        admin : DataTypes.TEXT
+        
     },
     {
         sequelize,

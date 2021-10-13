@@ -8,13 +8,28 @@
 </head>
 <body>
     <form action="/signup.html" method="post">
+        <input type="radio" name="avatarURL" id="baby-yoda" value="/avatars/icons8-baby-yoda-48.png">
+        <label for="baby-yoda"><img src="/avatars/icons8-baby-yoda-48.png" alt="baby yoda"></label>
+        <br>
+        <input type="radio" name="avatarURL" id="jerry" value="/avatars/icons8-jerry-48.png">
+        <label for="jerry"><img src="/avatars/icons8-jerry-48.png" alt="jerry"></label>
+        <br>
+        <input type="radio" name="avatarURL" id="tom" value="/avatars/icons8-tom-48.png">
+        <label for="tom"><img src="/avatars/icons8-tom-48.png" alt="tom"></label>
+        <br>
+        <input type="radio" name="avatarURL" id="morty" value="/avatars/icons8-morty-smith-48.png">
+        <label for="morty"><img src="/avatars/icons8-morty-smith-48.png" alt="morty"></label>
+        <br>
+        <input type="radio" name="avatarURL" id="rick" value="/avatars/icons8-rick-sanchez-48.png">
+        <label for="rick"><img src="/avatars/icons8-rick-sanchez-48.png" alt="Rick"></label>
+        <br>
         <label for="username-signup">Username:</label>
         <input name="username" id="username-signup" required>
         <br>
         <label for="password-signup">Password:</label>
         <input name="password" id="password-signup" required>
         <br>
-        <label for="email-signup">Password:</label>
+        <label for="email-signup">Email:</label>
         <input name="email" id="email-signup" required>
         <br>
         <button type="submit">Sign Up</button>
@@ -23,15 +38,7 @@
             <option value="true">Admin</option>
             <option value="false">Non-admin</option>
         </select>
-
-        <select name="avatar" id="choose-avatar">
-            <option value="true"><img src="./avatars/icons8-baby-yoda-48.png">Baby Yoda</option>
-            <option value="true"><img src="./avatars/icons8-tom-48.png">Tom</option>
-            <option value="true"><img src="./avatars/icons8-jerry-48.png">Jerry</option>
-            <option value="true"><img src="./avatars/icons8-morty-smith-48.png">Morty</option>
-            <option data-img_src="background-image: url(./avatars/icons8-rick-sanchez-48.png)">Rick</option>
-        </select>
-
-    </form>
+    </form> 
+    <a href="login.html">Login</a> 
 </body>
 </html>

@@ -1,5 +1,6 @@
 const express = require("express");
 const setupDB = require("./setupDB");
+const bcrypt = require("bcrypt");
 
 const app = express();
 
@@ -8,7 +9,6 @@ const Dashboard = require("./dashboard");
 const ProjectBoard = require("./projectBoard");
 const Task = require("./task");
 const User = require("./user");
-const Admin = require("./admin");
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -20,32 +20,86 @@ app.listen(port, () => {
     console.log(`listening to port ${port}`);
 });
 
-
-/*
-const pass = hash function {
-    req.body.password
-}
-*/
-
-
+app.get("/", (req, res) => {
+    res.redirect("/login.html")
+})
 
 // tells page how to handle the data from signup form
-  app.post('/signup.html',function(req,res){
-    const username = req.body.username;
-    const pass = req.body.password
-    const admin = req.body.admin
-    var htmlData = username + pass + admin;
-    res.send(htmlData);
-    console.log(htmlData);
- });
-
-
 // makes a new user
-app.post("/user", async (req,res) => {
-    const { username, password, avatarURL } = req.body;
-    await User.create({ username, password, avatarURL});
-    res.sendStatus(201);
+app.post("/signup.html", async (req,res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const emailAvaliabilityCheck = await User.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        let email;
+        if (emailAvaliabilityCheck == null) {
+            email = req.body.email;
+            const password = hashedPassword;
+            const avatarURL = req.body.avatarURL;
+            const admin = req.body.admin;
+            const username = req.body.username;
+            await User.create({ username, password, avatarURL, email, admin });
+            res.sendStatus(201);
+        }
+        else res.redirect("/signup.html")
+
+        
+    }
+    catch {
+        res.status(500).send();
+    }
 });
+
+// login 
+app.post("/login.html", async (req, res) => {
+    const user = await User.findOne({
+        where: {
+            username: req.body.username
+        }
+    });
+    if (user == null) {
+        return res.status(400).send('username or password incorrect')
+    }
+    try{
+        if (await bcrypt.compare(req.body.password, user.password)) {
+            res.redirect("/dashboard.html");
+        }
+        else {
+            res.send('username or password incorrect')
+        }
+    }
+    catch{
+        res.status(500).send()
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // gets all the users
 app.get("/user", async (req,res) => {
