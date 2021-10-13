@@ -5,10 +5,10 @@ class User extends Model{};
 
 User.init(
     {
-        username: DataTypes.TEXT,
+        username: {type: DataTypes.TEXT, primaryKey: true},
         password: DataTypes.TEXT,
         avatarURL: DataTypes.TEXT,
-        admin : DataTypes.BOOLEAN
+        admin : DataTypes.TEXT
     },
     {
         sequelize,
