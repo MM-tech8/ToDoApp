@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const db = require("./db.js");
+const db = require("./db"); 
 const saltRounds = 10;
 
 var password = "askldjalks223!";
@@ -15,3 +15,5 @@ bcrypt.hash(password, saltRounds, function(err, hash) {
         }
     });
 });
+
+module.exports = bcrypt.hash();

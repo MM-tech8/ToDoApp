@@ -8,6 +8,7 @@ User.init(
         username: DataTypes.TEXT,
         password: DataTypes.TEXT,
         avatarURL: DataTypes.TEXT,
+        email: DataTypes.TEXT,
         admin : DataTypes.BOOLEAN
     },
     {

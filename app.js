@@ -20,6 +20,15 @@ app.listen(port, () => {
     console.log(`listening to port ${port}`);
 });
 
+
+/*
+const pass = hash function {
+    req.body.password
+}
+*/
+
+
+
 // tells page how to handle the data from signup form
   app.post('/signup.html',function(req,res){
     const username = req.body.username;
