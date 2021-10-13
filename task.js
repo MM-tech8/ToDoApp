@@ -5,6 +5,7 @@ class Task extends Model {}
 
 Task.init (
     {
+        Title: DataTypes. STRING,
         description : DataTypes.TEXT,
         assignedUsers: DataTypes.ARRAY(DataTypes.TEXT) 
     },

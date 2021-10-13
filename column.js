@@ -1,11 +1,11 @@
 const sequelize = require("./db");
-const { Model } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 class Column extends Model {};
 
 Column.init (
     {
-        
+      Title: DataTypes.STRING,  
     },
     {
         sequelize,

@@ -11,6 +11,7 @@
     "minipass": "^3.1.5",
     "minizlib": "^2.1.2",
     "node-addon-api": "^3.2.1",
+    "nodemon": "^2.0.13",
     "rimraf": "^3.0.2",
     "semver": "^7.3.5",
     "sequelize": "^6.7.0",
