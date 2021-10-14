@@ -68,6 +68,123 @@ app.post("/admin", async (req,res) => {
 });
 
 
-
-
 setupDB();
+
+
+    // get all Projectboard checked
+    app.get('/projectBoard', async(req, res) => {
+        const projectBoard = await ProjectBoard.findAll() 
+        return res.status(200).json(projectBoard)
+    }); 
+
+    // get a specific Projectboard check
+    app.get('/projectBoard/:id', async(req, res) => {
+        const id = req.params.id
+        const projectBoard = await ProjectBoard.findByPk(id)
+        return res.status(200).json(projectBoard)
+    });
+
+    // create check
+    app.post('/dashboard/:id/projectboard', async(req, res) =>{
+        
+        const {Title} = req.body; 
+        const dashboard = await Dashboard.findByPk(req.params.id)
+        const board = await dashboard.createProjectBoard({
+            Title
+        });
+        console.log(board)
+        res.sendStatus(201).json(board)
+    });
+
+
+// Task
+
+    // create new task in coloumn check
+    app.post('/projectBoard/:id/column/:columnid/task', async(req, res) =>{
+        const {Title, description, assignedUsers} = req.body;
+        await Task.create({Title, description, assignedUsers})
+        res.sendStatus(201)
+    })
+
+    // Get request check
+    app.get('/projectBoard/:id/column/:columnid/task/:taskid', async(req, res) => {
+        const taskid = req.params.taskid
+        const gettask = await Task.findByPk(taskid)
+        return res.status(200).json(gettask)
+    });
+
+
+    // delete task in Col.projectboard check 
+    app.delete('/projectBoard/:id/column/:columnid/task/:taskid', async(req, res) =>{
+       try{ 
+           const task = await Task.findByPk(req.params.taskid)
+           console.log(task)
+        await task.destroy()
+        res.status(200)} 
+        catch(error){
+            console.error(error)
+        }
+        }); 
+    // edit task in Col.projectboard check
+    app.put("/projectBoard/:id/column/:columnId/task/:taskid", async (req, res) => {
+        const task = await Task.findByPk(req.params.taskid);
+        if (!task) {
+            return res.sendStatus(404);
+        }
+        await task.update(req.body);
+        res.sendStatus(200);
+    });
+
+
+
+
+// Column
+    // get all column within ProjectBoard not done
+    app.get('/projectBoard/:id/column', async(req, res) =>{
+        const projectBoardid = req.params.id
+        const getprojectBoard = await ProjectBoard.findByPK(projectBoardid) 
+        return res.status(200).json(getprojectBoard)
+    });
+    // create column in projectBoard
+    app.post('/projectBoard/:id/column', async(req, res) =>{
+        const id = req.params.id
+        const {Title} = req.body;
+        await Column.create(Title)
+        res.sendStatus(201)
+    })
+// get column
+    app.get('/projectBoard/:id/column/:columnid', async(req, res) => {
+        const columnid = req.params.columnid
+        const getcolumn = await Column.findByPk(columnid)
+        return res.status(200).json(getcolumn)
+    });
+    // delete column in projectboard 
+     app.delete('/column/:columnId', async(req, res) =>{
+        try { 
+        const column = await Column.findByPk(req.params.columnId)
+        await column.destroy()
+        res.status(200)
+    } 
+        catch(error){
+            console.error(error)
+        }
+        });
+
+
+    // edit column in projectboard 
+     app.put("/projectBoard/:id/column/:columnId", async (req, res) => {
+        const column= await Column.findByPk(req.params.columnId);
+        if (!column) {
+            return res.sendStatus(404);
+        }
+        await column.update(req.body);
+        res.sendStatus(200);
+    });
+
+
+    app.listen(port, () => {
+        console.log(`http://localhost:${port}`);
+    });
+
+
+

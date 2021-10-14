@@ -1,0 +1,21 @@
+    {{!-- render task fpr  --}}
+<section>
+    <H2>Task</H2>
+{{#each Projectboard}}
+ <articles>
+    <label>
+           Task name:
+          <span>{{this.name}}</span>
+     </label>
+     <label>
+            description:
+            <span>{{this.description}}</span>
+      </label>
+      <label>
+             Assigned Users:
+             <span>{{this.user}}</span>
+     </label>
+
+ </articles>
+{{/each}}
+ </section>
