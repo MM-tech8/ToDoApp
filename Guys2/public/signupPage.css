@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    /* background: linear-gradient(160deg, #FF7F50, #6495ED); */
+    opacity: 0.8;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* .splitScreen {
+    display: flex;
+    flex-direction: column;
+} */
+
+h1 {
+    text-align: center;
+    /* A bit more space between the input fields and the page title */
+    padding: 0 0 20px 0;
+    border-bottom: 2px slategray solid;
+}
+
+/* More spaced out, bigger font */
+form {
+    font-size: larger;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* Selected three elements, because I want to apply these properties to all */
+#username-signup, #password-signup, #email-signup {
+    position: relative;
+    border-bottom: 2px solid silver;
+    margin: 20px;
+    /* transform: translate(-5%, 0%); */
+}
+
+.container label {
+    font-size: larger;
+    pointer-events: none;
+}
+
+.submit {
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: larger;
+    font-weight: bold;
+    /* Specifies the mouse cursor when hovering over an element */
+    cursor: pointer;
+}
+
+a {
+    margin: 0px 0px;
+    text-align: center;
+    font-size: larger;
+    /* transform: translate(0%, 20%); */
+    
+}
+

@@ -1,0 +1,34 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "passwordhasher.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "fs-minipass": "^2.1.0",
+    "lru-cache": "^6.0.0",
+    "minipass": "^3.1.5",
+    "minizlib": "^2.1.2",
+    "node-addon-api": "^3.2.1",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.5",
+    "sequelize": "^6.7.0",
+    "sqlite3": "^5.0.2",
+    "tar": "^6.1.11",
+    "yallist": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MM-tech8/ToDoApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MM-tech8/ToDoApp/issues"
+  },
+  "homepage": "https://github.com/MM-tech8/ToDoApp#readme"
+}
