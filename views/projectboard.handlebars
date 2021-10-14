@@ -1,0 +1,32 @@
+{{!-- <div class="projectBoard">
+   <div class="container">
+       <div class="row-container">
+         <form action="/task" method="Post">
+           <label>Enter Task name</label>
+           <input type="text" name="name" required placeholder="name" />
+           <label>Enter description</label>
+           <input type="text" name="name" required placeholder="name" />
+           <label>Assigned user</label>
+           <input type="text" name="name" required placeholder="name" />
+           <button type="submit">Submit</button>
+           </form>  
+       </div>
+   </div> --}}
+
+ <h1 id="BoardsTitle">ProjectBoards</h1>
+ <div class="container">
+     <section>
+     {{#each projectBoard}}
+         <article>
+             <header></header>
+            <a id="boardLine" href="/column/{{this.id}}">
+              <div class="boardTitle">
+                  <h1>{{this.Title}}</h1>
+              </div>
+             </a>
+         </article>
+     {{/each}}
+  </section>
+ </div>
+
+ </div>

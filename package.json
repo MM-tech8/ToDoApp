@@ -4,9 +4,12 @@
   "description": "",
   "main": "passwordhasher.js",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
     "fs-minipass": "^2.1.0",
+    "handlebars": "^4.7.7",
     "lru-cache": "^6.0.0",
     "minipass": "^3.1.5",
     "minizlib": "^2.1.2",
@@ -20,6 +23,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

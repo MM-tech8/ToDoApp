@@ -8,21 +8,27 @@ const Dashboard = require("./dashboard");
 const ProjectBoard = require("./projectBoard");
 const Task = require("./task");
 const User = require("./user");
-const Admin = require("./admin");
+const path = require("path");
+const Handlebars = require("handlebars");
+const expressHandlebars = require("express-handlebars");
+const {
+    allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
-const port = 4000;
-
-app.listen(port, () => {
-    console.log(`listening to port ${port}`);
+// setup our templating engine
+const handlebars = expressHandlebars({
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
 });
+app.engine("handlebars", handlebars);
+app.set("view engine", "handlebars");
+app.set('views', path.join(__dirname, 'views')); 
 
-// app.get('/', function(req, res){
-//    res.sendFile("index.html"); 
-//   });
+const port = 9000;
+
+setupDB();
 
   app.post('/signup.html',function(req,res){
     const username = req.body.username;
@@ -68,20 +74,17 @@ app.post("/admin", async (req,res) => {
 });
 
 
-setupDB();
-
-
     // get all Projectboard checked
     app.get('/projectBoard', async(req, res) => {
         const projectBoard = await ProjectBoard.findAll() 
-        return res.status(200).json(projectBoard)
+        res.render('dashboard', {projectBoard})
     }); 
 
     // get a specific Projectboard check
     app.get('/projectBoard/:id', async(req, res) => {
         const id = req.params.id
         const projectBoard = await ProjectBoard.findByPk(id)
-        return res.status(200).json(projectBoard)
+        res.render('projectBoard', {projectBoard})
     });
 
     // create check
@@ -93,7 +96,8 @@ setupDB();
             Title
         });
         console.log(board)
-        res.sendStatus(201).json(board)
+        // res.sendStatus(201).json(board)
+        res.render('Dashboard', {Dashboard})
     });
 
 
@@ -103,7 +107,7 @@ setupDB();
     app.post('/projectBoard/:id/column/:columnid/task', async(req, res) =>{
         const {Title, description, assignedUsers} = req.body;
         await Task.create({Title, description, assignedUsers})
-        res.sendStatus(201)
+        res.render('projectBoard',{})
     })
 
     // Get request check
