@@ -129,7 +129,7 @@ app.post('/dashboard/:userEmail/projectboard', async(req, res) =>{
     const { Title } = req.body; 
     const dashboard = await Dashboard.findByPk(req.params.userEmail)
     await dashboard.createProjectBoard({ Title });
-    console.log(board)
+    //console.log(board)
     //res.render("dashboard")
 });
 
@@ -174,9 +174,6 @@ app.get("/reset-password/:token", (req,res,next) => {
     } catch (error) {
         console.log("error with token")
     }
-
-
-    
 })
 
 app.post("/reset-password/:token", (req,res,next) => {

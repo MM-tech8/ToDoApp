@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* Choose a font family */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+
+    /* The following properties affect the background or wallpaper design */
+    background: linear-gradient(160deg, #FF7F50, #6495ED);
+    opacity: 0.6;
+    /* In CSS, a unit is vh. 1vh is 1% of the height of the viewport */
+    height: 100vh;
+    /* Overflow option dictates what to do when there is too much content to fit within the page */
+    overflow: hidden;
+}
+
+/* For the actual login container: */
+.container {
+    /* These ones move the form class onto the centre of the page */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* Translate moves the form element onto the middle */
+    transform: translate(-50%, -50%);
+
+    /* Doesnt work that well and might be unncessary with bigger font  */
+    /* background: #E9967A;
+    opacity: 0.1; */
+    width: 500px;
+    height: 350px;
+    /* border-style: solid; */
+    text-align: center;
+}
+
+.container h1 {
+    text-align: center;
+    /* A bit more space between the input fields and the page title */
+    padding: 0 0 20px 0;
+    border-bottom: 2px slategray solid;
+}
+
+.container form {
+    font-size: larger;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* Selected two elements, because I want to apply these properties to both */
+#username-login, #password-login {
+    position: relative;
+    border-bottom: 2px solid silver;
+    margin: 20px;
+    transform: translate(-5%, 0%);
+}
+
+/* Syntax selects both input fields */
+input[type=text] {
+    width: 100%;
+    padding: 0 0px;
+    height: 20px;
+    /* Makes the most difference to how big the input fields are */
+    font-size: larger;
+    border: none;
+    background: none;
+}
+
+.container label {
+    /* position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%); */
+    font-size: larger;
+    pointer-events: none;
+}
+
+/* Insert these properties before the span element */
+/* .container span::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: blue;
+} */
+
+
+.submit {
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: larger;
+    font-weight: bold;
+    /* Specifies the mouse cursor when hovering over an element */
+    cursor: pointer;
+}
+
+.signup {
+    margin: 0px 0px;
+    text-align: center;
+    font-size: larger;
+    /* transform: translate(0%, 20%); */
+    
+}
