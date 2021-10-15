@@ -133,11 +133,35 @@ app.post('/dashboard/:userEmail/projectboard', async(req, res) =>{
     //res.render("dashboard")
 });
 
+// reset password using existing password
+app.put("/forgot-password/:userEmail", async (req,res) => {
+    const user = await User.findOne({ where: {
+        email: req.params.userEmail
+    }});
+    const { oldpassword } = req.body.oldPassword;
+    console.log(user)
+
+    
+    if(user == null) {
+        return res.sendStatus(404);
+    }
+    if (await bcrypt.compare(req.body.oldPassword, user.password)){
+       const hashedPassword = await bcrypt.hash(req.body.newpassword, 10)
+       await user.update({password: hashedPassword});
+       res.sendStatus(200);
+    } else{
+        res.sendStatus(500)
+    }
+    
+
+});
 
 
 
 
-// forget password
+
+/* forget password (tried to do a reset password for email but stopped
+doing as it was going to take too long)
 
 const JWT_SECRET = "very secret secret"
 
@@ -181,6 +205,7 @@ app.post("/reset-password/:token", (req,res,next) => {
     res.send(userEmail)
 })
 
+*/
 
 
 
