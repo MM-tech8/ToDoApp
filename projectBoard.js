@@ -6,7 +6,7 @@ class ProjectBoard extends Model {}
 
 ProjectBoard.init (
     {
-
+        Title: DataTypes.TEXT
     },
     {
         sequelize,
