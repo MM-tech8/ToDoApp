@@ -13,11 +13,6 @@ body{
     text-align: center;
 }
 
-/* .splitScreen {
-    display: flex;
-    flex-direction: column;
-} */
-
 h1 {
     text-align: center;
     /* A bit more space between the input fields and the page title */

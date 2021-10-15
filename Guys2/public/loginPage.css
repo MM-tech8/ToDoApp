@@ -6,7 +6,7 @@ body{
     font-size: large;
 
     /* The following properties affect the background or wallpaper design */
-    background: linear-gradient(160deg, #FF7F50, #6495ED);
+    /* background: linear-gradient(160deg, #FF7F50, #6495ED); */
     opacity: 0.6;
     /* In CSS, a unit is vh. 1vh is 1% of the height of the viewport */
     height: 100vh;
@@ -27,16 +27,19 @@ body{
     /* background: #E9967A;
     opacity: 0.1; */
     width: 500px;
-    height: 350px;
+    height: 450px;
     /* border-style: solid; */
     text-align: center;
 }
 
-.container h1 {
+.container h2 {
     text-align: center;
     /* A bit more space between the input fields and the page title */
     padding: 0 0 20px 0;
-    border-bottom: 2px slategray solid;
+    border-bottom: 4px cornflowerblue solid;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5em;
 }
 
 .container form {
@@ -49,8 +52,9 @@ body{
 #username-login, #password-login {
     position: relative;
     border-bottom: 2px solid silver;
-    margin: 20px;
+    margin: 15px;
     transform: translate(-5%, 0%);
+
 }
 
 /* Syntax selects both input fields */
@@ -71,6 +75,8 @@ input[type=text] {
     transform: translateY(-50%); */
     font-size: larger;
     pointer-events: none;
+    color: cornflowerblue;
+    font-weight: 600;
 }
 
 /* Insert these properties before the span element */
@@ -88,15 +94,19 @@ input[type=text] {
 .submit {
     width: 100%;
     height: 50px;
+    background-color: cornflowerblue;
     border-radius: 30px;
     font-size: larger;
+    color: white;
     font-weight: bold;
     /* Specifies the mouse cursor when hovering over an element */
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .signup {
     margin: 0px 0px;
+    /* padding-top: 20px; */
     text-align: center;
     font-size: larger;
     /* transform: translate(0%, 20%); */

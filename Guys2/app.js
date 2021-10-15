@@ -76,31 +76,6 @@ app.post("/login.html", async (req, res) => {
     }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // gets all the users
 app.get("/user", async (req,res) => {
     const user = await User.findAll();
